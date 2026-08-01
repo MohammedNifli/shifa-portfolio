@@ -2,12 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ABOUT_DATA, PERSONAL_INFO } from "../constants";
 
-const About = ({ isDarkMode }) => {
+const About = () => {
   return (
-    <section id="about" className={`py-28 relative transition-colors duration-500 ${
-      isDarkMode ? "bg-[#050508] text-white" : "bg-[#fbf9f5] text-zinc-900"
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+    <section id="about" className="py-28 bg-black text-white relative">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* 2-Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -15,23 +13,19 @@ const About = ({ isDarkMode }) => {
           {/* Left Column: Image Frame (Ratio 4:5 with minimalist border) */}
           <motion.div 
             className="lg:col-span-5 flex justify-center"
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <div className={`relative w-full max-w-md aspect-[4/5] p-2 border transition-colors group ${
-              isDarkMode ? "border-zinc-800 bg-[#0c0c12]" : "border-zinc-300 bg-white shadow-xl"
-            }`}>
+            <div className="relative w-full max-w-md aspect-[4/5] rounded-none border border-zinc-800 p-2 bg-[#050505] group">
               <div className="w-full h-full overflow-hidden relative">
                 <img 
                   src={PERSONAL_INFO.profileImage} 
                   alt={PERSONAL_INFO.name}
-                  className="w-full h-full object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover filter grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className={`absolute inset-0 transition-opacity ${
-                  isDarkMode ? "bg-black/10 group-hover:opacity-0" : "bg-white/5 group-hover:opacity-0"
-                }`} />
+                <div className="absolute inset-0 bg-black/10" />
               </div>
             </div>
           </motion.div>
@@ -39,51 +33,34 @@ const About = ({ isDarkMode }) => {
           {/* Right Column: Heading & Body */}
           <motion.div 
             className="lg:col-span-7 space-y-8"
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <span className={`text-xs uppercase tracking-[0.3em] font-mono font-medium block ${
-              isDarkMode ? "text-amber-400" : "text-amber-700"
-            }`}>
-              Designer Profile
+            <span className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-medium block">
+              Profile
             </span>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide uppercase font-serif-luxury">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white uppercase">
               {ABOUT_DATA.heading}
             </h2>
 
-            <p className={`text-base sm:text-lg font-light leading-relaxed tracking-wide ${
-              isDarkMode ? "text-zinc-300" : "text-zinc-700"
-            }`}>
+            <p className="text-base sm:text-lg text-zinc-300 font-light leading-relaxed tracking-wide">
               {ABOUT_DATA.body}
             </p>
 
             {/* Sub-Details Key-Value grid */}
-            <div className={`pt-8 border-t grid grid-cols-1 sm:grid-cols-2 gap-6 ${
-              isDarkMode ? "border-zinc-800" : "border-zinc-200"
-            }`}>
+            <div className="pt-8 border-t border-zinc-900 grid grid-cols-1 sm:grid-cols-2 gap-6">
               {ABOUT_DATA.subDetails.map((detail, idx) => (
-                <motion.div 
-                  key={idx} 
-                  className="space-y-1"
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                >
-                  <span className={`text-[11px] uppercase tracking-widest font-mono block ${
-                    isDarkMode ? "text-zinc-500" : "text-zinc-400"
-                  }`}>
+                <div key={idx} className="space-y-1">
+                  <span className="text-[11px] uppercase tracking-widest text-zinc-500 block">
                     {detail.label}
                   </span>
-                  <span className={`text-sm font-normal tracking-wide block ${
-                    isDarkMode ? "text-zinc-200" : "text-zinc-800"
-                  }`}>
+                  <span className="text-sm text-zinc-200 font-normal tracking-wide block">
                     {detail.value}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
 

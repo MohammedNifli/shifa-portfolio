@@ -1,33 +1,34 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { FaGem, FaDraftingCompass, FaTools, FaCheckCircle } from 'react-icons/fa';
 import { SKILL_CATEGORIES } from '../constants';
 
-const Skills = ({ isDarkMode }) => {
+const Skills = () => {
   return (
-    <section id="skills" className={`py-28 relative border-t transition-colors duration-500 ${
-      isDarkMode ? "bg-[#09090e] border-zinc-900 text-white" : "bg-[#f4f1ea] border-zinc-200 text-zinc-900"
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+    <section id="skills" className="py-20 bg-[#09090c] relative overflow-hidden">
+      
+      {/* Background glow */}
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
-          initial={{ opacity: 0, y: 25 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className={`text-xs uppercase tracking-[0.3em] font-mono font-medium block ${
-            isDarkMode ? "text-amber-400" : "text-amber-700"
-          }`}>
-            Expertise
+          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-2 inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+            Technical Proficiency
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide uppercase font-serif-luxury">
-            Technical CAD Skills
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            CAD Skills & <span className="text-gold-gradient italic">Jewellery Expertise</span>
           </h2>
-          <div className={`w-16 h-[1px] mx-auto mt-4 ${
-            isDarkMode ? "bg-amber-500/40" : "bg-amber-700/40"
-          }`} />
+          <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Combining digital 3D CAD precision in Rhino 8 with hands-on technical understanding of gold casting, gemstone setting tolerances, and production feasibility.
+          </p>
         </motion.div>
 
         {/* Skill Category Cards */}
@@ -35,45 +36,42 @@ const Skills = ({ isDarkMode }) => {
           {SKILL_CATEGORIES.map((cat, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className={`p-8 border flex flex-col justify-between transition-all ${
-                isDarkMode 
-                  ? "border-zinc-800 bg-[#0c0c12] hover:border-amber-500/40 shadow-xl" 
-                  : "border-zinc-300 bg-white hover:border-amber-600 shadow-md"
-              }`}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              className="gold-glass-card rounded-2xl p-6 sm:p-8 border-gold-glow flex flex-col justify-between"
             >
               <div>
-                <h3 className="font-serif-luxury text-2xl font-normal uppercase tracking-wider mb-6 pb-2 border-b border-zinc-700/40">
+                <div className="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mb-6 border border-amber-500/30">
+                  {idx === 0 && <FaDraftingCompass className="text-amber-400 text-xl" />}
+                  {idx === 1 && <FaTools className="text-amber-400 text-xl" />}
+                  {idx === 2 && <FaGem className="text-amber-400 text-xl" />}
+                </div>
+
+                <h3 className="font-serif-luxury text-xl font-bold text-white mb-6">
                   {cat.title}
                 </h3>
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                   {cat.skills.map((skill, sIdx) => (
                     <div key={sIdx}>
-                      <div className="flex justify-between items-center text-xs mb-2">
-                        <span className="font-medium tracking-wide">
+                      <div className="flex justify-between items-center text-xs mb-1.5">
+                        <span className="text-stone-200 font-medium flex items-center gap-2">
+                          <FaCheckCircle className="text-amber-400 text-[10px]" />
                           {skill.name}
                         </span>
-                        <span className={`font-mono ${
-                          isDarkMode ? "text-amber-400" : "text-amber-700"
-                        }`}>{skill.level}%</span>
+                        <span className="text-amber-300 font-mono font-semibold">{skill.level}%</span>
                       </div>
 
-                      {/* Animated Progress Bar */}
-                      <div className={`w-full h-1 overflow-hidden ${
-                        isDarkMode ? "bg-zinc-800" : "bg-zinc-200"
-                      }`}>
+                      {/* Progress Bar */}
+                      <div className="w-full h-1.5 bg-black/60 rounded-full overflow-hidden p-[1px] border border-amber-500/20">
                         <motion.div
-                          className={`h-full ${
-                            isDarkMode ? "bg-gradient-to-r from-amber-600 to-yellow-400" : "bg-amber-700"
-                          }`}
+                          className="h-full bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-300 rounded-full"
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: 0.3 + sIdx * 0.1, ease: "easeOut" }}
+                          transition={{ duration: 1, delay: 0.2 + sIdx * 0.1 }}
                         />
                       </div>
                     </div>
@@ -81,10 +79,8 @@ const Skills = ({ isDarkMode }) => {
                 </div>
               </div>
 
-              <div className={`mt-8 pt-4 border-t text-[11px] font-mono italic ${
-                isDarkMode ? "border-zinc-800 text-zinc-500" : "border-zinc-200 text-zinc-400"
-              }`}>
-                Precision casting & CAM feasibility ready
+              <div className="mt-8 pt-4 border-t border-amber-500/20 text-[11px] text-stone-400 italic">
+                Verified for high-volume commercial production & custom orders
               </div>
 
             </motion.div>
