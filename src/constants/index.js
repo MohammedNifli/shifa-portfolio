@@ -28,6 +28,33 @@ export const ABOUT_DATA = {
   ]
 };
 
+export const STONE_SETTINGS_DATA = [
+  {
+    name: "Prong Setting",
+    description: "Classic claw-based hold designed to maximize gemstone light reflection. Requires exact prong length and angle tolerance in Rhino 8 CAD.",
+    cadTolerance: "0.20mm - 0.35mm seat depth",
+    bestFor: "Solitaire Rings & Oval Cut Gemstones"
+  },
+  {
+    name: "Micro-Pave Setting",
+    description: "Multiple small gemstones set closely together using tiny metal beads. High CAD precision needed to prevent stone overlap.",
+    cadTolerance: "0.15mm stone spacing",
+    bestFor: "Halos, Diamond Bands & Luxury Necklaces"
+  },
+  {
+    name: "Bezel Setting",
+    description: "A continuous metal rim surrounding the gem perimeter for ultimate protection and modern aesthetic finish.",
+    cadTolerance: "0.25mm rim overlap",
+    bestFor: "Daily Wear Rings & Geometric Pendants"
+  },
+  {
+    name: "Channel Setting",
+    description: "Gemstones suspended between two smooth parallel walls of metal without individual prongs.",
+    cadTolerance: "0.10mm channel groove fit",
+    bestFor: "Eternity Bands & Modern Bracelets"
+  }
+];
+
 export const FEATURED_PROJECTS = [
   {
     id: 1,
@@ -117,3 +144,78 @@ export const TECHNICAL_MASTERY = [
   "CAM 3D Printing & Shrinkage Allowances",
   "Gold & Metal Weight Optimization"
 ];
+
+export const SKILL_CATEGORIES = [
+  {
+    title: "Software & Design Tools",
+    skills: [
+      { name: "Rhino 8 (Advanced 3D CAD)", level: 95 },
+      { name: "Gemvision Matrix / MatrixGold", level: 88 },
+      { name: "Keyshot (3D Rendering)", level: 85 },
+      { name: "Professional Hand Sketching", level: 92 },
+      { name: "Adobe Photoshop / Illustration", level: 80 }
+    ]
+  },
+  {
+    title: "Technical Jewellery Expertise",
+    skills: [
+      { name: "Stone Setting Mechanics (Prong, Bezel, Pave)", level: 94 },
+      { name: "Jewellery Manufacturing & Casting", level: 90 },
+      { name: "CAM & 3D Printing Tolerances", level: 92 },
+      { name: "Gold & Metal Weight Optimization", level: 89 },
+      { name: "Structural Feasibility & Ergonomics", level: 91 }
+    ]
+  },
+  {
+    title: "Core Competencies",
+    skills: [
+      { name: "Rapid Concept Translation", level: 95 },
+      { name: "Aesthetic Problem Solving", level: 93 },
+      { name: "Commercial & Haute Joaillerie Design", level: 90 },
+      { name: "Production-Ready Specification Sheets", level: 96 }
+    ]
+  }
+];
+
+export const CV_DATA = {
+  name: "FATHIMA SHIFA A P",
+  title: "3D JEWELLERY CAD DESIGNER",
+  contact: {
+    phone: "+91 9846823509",
+    email: "Shifafathima1928@gmail.com",
+    location: "Kerala, India"
+  },
+  summary: "Accomplished 3D Jewellery CAD Designer with 2 years of experience creating production-ready jewellery models for Titan through vendor Sulu. Specialized in Rhino 8 modeling, gemstone setting calculations, weight optimization, and casting feasibility.",
+  experience: [
+    {
+      role: "3D Jewellery CAD Designer",
+      company: "Sulu (Authorized Vendor for Titan)",
+      period: "April 2024 - Present (2 Years Total)",
+      details: [
+        "Created production-ready 3D CAD models for Titan using Rhino 8.",
+        "Successfully completed 3-month OJT starting August and 1-year probation.",
+        "Calculated metal weights, stone settings, and casting shrinkage tolerances."
+      ]
+    }
+  ],
+  education: [
+    {
+      degree: "Diploma in Gems and Jewellery Design (1 Year)",
+      institution: "Institute of Gems and Jewellery (IGJ)",
+      details: "Key Focus: 3D CAD Designing & Professional Hand Sketching."
+    },
+    {
+      degree: "Bachelor's Degree (Distance Education)",
+      institution: "Pondicherry University",
+      details: "Currently in 1st Year (Ongoing)."
+    }
+  ],
+  skills: [
+    "Rhino 8 3D CAD",
+    "Hand Sketching",
+    "Stone Setting Mechanics",
+    "CAM / 3D Printing Feasibility",
+    "Gold Weight Optimization",
+    "Keyshot Rendering"
+  ]
+};

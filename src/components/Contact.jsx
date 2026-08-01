@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PERSONAL_INFO } from '../constants';
 
-const Contact = () => {
+const Contact = ({ isDarkMode }) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -29,38 +29,48 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 bg-[#050505] text-white relative border-t border-zinc-900">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8">
+    <section id="contact" className={`py-28 relative border-t transition-colors duration-500 ${
+      isDarkMode ? "bg-[#050508] border-zinc-900 text-white" : "bg-[#fbf9f5] border-zinc-300 text-zinc-900"
+    }`}>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header */}
         <motion.div 
           className="text-center space-y-3 mb-16"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-medium block">
+          <span className={`text-xs uppercase tracking-[0.3em] font-mono font-medium block ${
+            isDarkMode ? "text-amber-400" : "text-amber-700"
+          }`}>
             Inquiries
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white uppercase">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-wide uppercase font-serif-luxury">
             Get In Touch
           </h2>
-          <p className="text-sm text-zinc-400 font-light tracking-wider max-w-xl mx-auto">
+          <p className={`text-sm font-light tracking-wider max-w-xl mx-auto ${
+            isDarkMode ? "text-zinc-400" : "text-zinc-600"
+          }`}>
             Available for freelance CAD design, custom projects, and studio consults.
           </p>
         </motion.div>
 
         {/* Contact Form */}
         <motion.div 
-          className="dark-card p-8 sm:p-12 border border-zinc-900 bg-black"
+          className={`p-8 sm:p-12 border transition-all ${
+            isDarkMode 
+              ? "border-zinc-800 bg-[#0c0c12] shadow-2xl" 
+              : "border-zinc-300 bg-white shadow-xl"
+          }`}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
           {formSubmitted && (
-            <div className="mb-6 p-4 border border-zinc-700 bg-zinc-900 text-xs text-zinc-200 uppercase tracking-widest text-center">
+            <div className="mb-6 p-4 border text-xs uppercase tracking-widest text-center bg-amber-50 border-amber-300 text-amber-900">
               Mail client launched. Thank you for getting in touch.
             </div>
           )}
@@ -70,7 +80,9 @@ const Contact = () => {
               
               {/* Full Name */}
               <div className="space-y-2">
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-mono">
+                <label className={`block text-[11px] uppercase tracking-[0.2em] font-mono ${
+                  isDarkMode ? "text-zinc-400" : "text-zinc-500"
+                }`}>
                   Full Name
                 </label>
                 <input 
@@ -79,13 +91,19 @@ const Contact = () => {
                   placeholder="Enter your name"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className="w-full px-4 py-3 bg-[#050505] border border-zinc-800 text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500 text-sm tracking-wide transition-colors"
+                  className={`w-full px-4 py-3 border text-sm tracking-wide transition-colors ${
+                    isDarkMode 
+                      ? "bg-black border-zinc-800 text-white placeholder-zinc-700 focus:border-amber-400" 
+                      : "bg-zinc-50 border-zinc-300 text-zinc-900 placeholder-zinc-400 focus:border-amber-600"
+                  }`}
                 />
               </div>
 
               {/* Email Address */}
               <div className="space-y-2">
-                <label className="block text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-mono">
+                <label className={`block text-[11px] uppercase tracking-[0.2em] font-mono ${
+                  isDarkMode ? "text-zinc-400" : "text-zinc-500"
+                }`}>
                   Email Address
                 </label>
                 <input 
@@ -94,7 +112,11 @@ const Contact = () => {
                   placeholder="Enter your email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className="w-full px-4 py-3 bg-[#050505] border border-zinc-800 text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500 text-sm tracking-wide transition-colors"
+                  className={`w-full px-4 py-3 border text-sm tracking-wide transition-colors ${
+                    isDarkMode 
+                      ? "bg-black border-zinc-800 text-white placeholder-zinc-700 focus:border-amber-400" 
+                      : "bg-zinc-50 border-zinc-300 text-zinc-900 placeholder-zinc-400 focus:border-amber-600"
+                  }`}
                 />
               </div>
 
@@ -102,7 +124,9 @@ const Contact = () => {
 
             {/* Subject / Project Details */}
             <div className="space-y-2">
-              <label className="block text-[11px] uppercase tracking-[0.2em] text-zinc-400 font-mono">
+              <label className={`block text-[11px] uppercase tracking-[0.2em] font-mono ${
+                isDarkMode ? "text-zinc-400" : "text-zinc-500"
+              }`}>
                 Subject / Project Details
               </label>
               <textarea 
@@ -111,7 +135,11 @@ const Contact = () => {
                 placeholder="Describe your 3D CAD design requirement or project scope..."
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
-                className="w-full px-4 py-3 bg-[#050505] border border-zinc-800 text-white placeholder-zinc-700 focus:outline-none focus:border-zinc-500 text-sm tracking-wide transition-colors resize-none"
+                className={`w-full px-4 py-3 border text-sm tracking-wide transition-colors resize-none ${
+                  isDarkMode 
+                    ? "bg-black border-zinc-800 text-white placeholder-zinc-700 focus:border-amber-400" 
+                    : "bg-zinc-50 border-zinc-300 text-zinc-900 placeholder-zinc-400 focus:border-amber-600"
+                }`}
               />
             </div>
 
@@ -119,7 +147,11 @@ const Contact = () => {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full py-4 bg-white text-black font-semibold text-xs uppercase tracking-[0.25em] hover:bg-zinc-200 transition-all duration-300 border border-white"
+                className={`w-full py-4 font-semibold text-xs uppercase tracking-[0.25em] transition-all duration-300 border ${
+                  isDarkMode
+                    ? "bg-white text-black border-white hover:bg-zinc-200"
+                    : "bg-zinc-900 text-white border-zinc-900 hover:bg-black"
+                }`}
               >
                 Send Message
               </button>
@@ -129,14 +161,18 @@ const Contact = () => {
         </motion.div>
 
         {/* Footer */}
-        <div className="mt-24 pt-8 border-t border-zinc-900 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-zinc-500">
-          <p className="tracking-widest uppercase">
+        <div className={`mt-24 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-6 text-xs ${
+          isDarkMode ? "border-zinc-800 text-zinc-500" : "border-zinc-300 text-zinc-600"
+        }`}>
+          <p className="tracking-widest uppercase font-mono">
             © {new Date().getFullYear()} {PERSONAL_INFO.name}. ALL RIGHTS RESERVED.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
+            className={`uppercase tracking-[0.2em] font-mono transition-colors flex items-center gap-2 ${
+              isDarkMode ? "text-zinc-400 hover:text-white" : "text-zinc-600 hover:text-black"
+            }`}
           >
             <span>Back To Top</span>
             <span>↑</span>
