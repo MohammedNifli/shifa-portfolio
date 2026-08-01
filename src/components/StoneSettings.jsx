@@ -1,68 +1,74 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { STONE_SETTINGS } from '../constants';
+import { FaGem, FaCheckDouble, FaDraftingCompass, FaInfoCircle, FaShieldAlt } from 'react-icons/fa';
+import { STONE_SETTINGS_DATA } from '../constants';
 
 const StoneSettings = () => {
   const [selectedSetting, setSelectedSetting] = useState(0);
 
   return (
-    <section id="stone-settings" className="py-28 bg-black text-white relative border-b border-zinc-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="stone-settings" className="py-20 relative overflow-hidden bg-[#09090c]">
+      
+      {/* Background radial glow */}
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-600/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-16 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-mono block">
-            04 / CAD MECHANICS
+          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-2 inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+            Technical CAD Craftsmanship
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white uppercase">
-            Gemstone Setting Tolerances
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Gemstone Setting <span className="text-gold-gradient italic">CAD Tolerances</span>
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-light tracking-wider max-w-xl mx-auto">
-            Precision CAD seat geometry, prong angle tapering, and setting channel clearance engineered in Rhino 8 for flawless gemstone setting.
+          <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Every gemstone requires specific mechanical seat geometry, prong thickness, and setting channel clearance in 3D CAD to ensure secure setting and zero stone breakage during setting.
           </p>
-          <div className="w-12 h-[1px] bg-zinc-800 mx-auto mt-4" />
         </motion.div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {STONE_SETTINGS.map((item, index) => {
+        {/* Interactive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {STONE_SETTINGS_DATA.map((item, index) => {
             const isSelected = selectedSetting === index;
             return (
               <motion.div
                 key={index}
                 onClick={() => setSelectedSetting(index)}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`cursor-pointer p-6 transition-all duration-300 border ${
+                className={`cursor-pointer rounded-2xl p-6 transition-all duration-300 relative overflow-hidden ${
                   isSelected 
-                    ? "border-white bg-[#0a0a0a] shadow-2xl" 
-                    : "border-zinc-900 bg-[#050505] hover:border-zinc-700"
+                    ? "gold-glass-card border-gold-glow bg-amber-500/10 shadow-xl shadow-amber-500/10" 
+                    : "bg-[#121218]/80 border border-stone-800 hover:border-amber-500/30 hover:bg-[#161620]"
                 }`}
                 whileHover={{ y: -4 }}
+                transition={{ duration: 0.2 }}
               >
-                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 block mb-2">
-                  0{index + 1} / CAD Standard
-                </span>
+                {/* Active Indicator Top Bar */}
+                {isSelected && (
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-yellow-300" />
+                )}
 
-                <h3 className="font-serif-luxury text-xl font-light tracking-wide text-white uppercase mb-3">
+                <div className="w-12 h-12 rounded-xl bg-amber-500/15 flex items-center justify-center mb-4 border border-amber-500/30">
+                  <FaGem className={`text-xl ${isSelected ? "text-amber-300" : "text-amber-400/80"}`} />
+                </div>
+
+                <h3 className="font-serif-luxury text-xl font-bold text-white mb-2">
                   {item.name}
                 </h3>
 
-                <p className="text-xs text-zinc-400 font-light leading-relaxed mb-4 line-clamp-2">
+                <p className="text-stone-400 text-xs line-clamp-2 leading-relaxed mb-4">
                   {item.description}
                 </p>
 
-                <div className="pt-3 border-t border-zinc-900 flex justify-between items-center text-[10px] font-mono">
-                  <span className="text-zinc-500 uppercase tracking-widest">Seat Depth</span>
-                  <span className="text-white font-semibold">{item.cadTolerance}</span>
+                <div className="pt-3 border-t border-stone-800/80 flex items-center justify-between text-[11px]">
+                  <span className="text-stone-400 uppercase tracking-wider">CAD Seat Depth</span>
+                  <span className="text-amber-400 font-mono font-semibold">{item.cadTolerance}</span>
                 </div>
 
               </motion.div>
@@ -71,57 +77,57 @@ const StoneSettings = () => {
         </div>
 
         {/* Selected Setting Detail Showcase Card */}
-        <motion.div 
-          className="max-w-4xl mx-auto dark-card p-8 border border-zinc-800 bg-black space-y-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-zinc-900">
-            <div>
-              <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-mono block">
-                Active Specification
-              </span>
-              <h4 className="font-serif-luxury text-2xl font-light tracking-wide text-white uppercase mt-1">
-                {STONE_SETTINGS[selectedSetting].name}
-              </h4>
+        <div className="max-w-4xl mx-auto gold-glass-card rounded-2xl p-6 sm:p-8 border-gold-glow">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pb-6 border-b border-amber-500/20">
+            
+            <div className="flex items-center gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-amber-500/20 flex items-center justify-center border border-amber-400/50 shadow-inner">
+                <FaDraftingCompass className="text-amber-300 text-2xl" />
+              </div>
+              <div>
+                <span className="text-[10px] text-amber-400 font-semibold uppercase tracking-widest">Active CAD Standard</span>
+                <h4 className="font-serif-luxury text-2xl font-bold text-white">
+                  {STONE_SETTINGS_DATA[selectedSetting].name}
+                </h4>
+              </div>
             </div>
 
-            <div className="px-4 py-2 border border-zinc-800 bg-[#050505] text-xs font-mono text-zinc-300">
-              Ideal For: {STONE_SETTINGS[selectedSetting].bestFor}
+            <div className="px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/40 text-amber-300 text-xs font-semibold">
+              <FaShieldAlt className="inline mr-1" /> Ideal For: {STONE_SETTINGS_DATA[selectedSetting].bestFor}
+            </div>
+
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <div className="space-y-1">
+              <span className="text-[11px] text-stone-400 uppercase tracking-wider flex items-center gap-1.5">
+                <FaInfoCircle className="text-amber-400" /> CAD Engineering Rule
+              </span>
+              <p className="text-xs text-stone-200 leading-relaxed font-light">
+                {STONE_SETTINGS_DATA[selectedSetting].description}
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[11px] text-stone-400 uppercase tracking-wider flex items-center gap-1.5">
+                <FaCheckDouble className="text-amber-400" /> Rhino 8 Precision Seat
+              </span>
+              <p className="text-xs text-amber-300 font-mono font-semibold bg-black/40 p-2.5 rounded-lg border border-amber-500/20">
+                {STONE_SETTINGS_DATA[selectedSetting].cadTolerance}
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[11px] text-stone-400 uppercase tracking-wider flex items-center gap-1.5">
+                <FaGem className="text-amber-400" /> Titan Vendor Spec
+              </span>
+              <p className="text-xs text-stone-200 leading-relaxed">
+                Calculated for gold shrinkage (1.5% - 2.0%) and accurate master casting mold yield.
+              </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-light">
-            <div className="space-y-1">
-              <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-mono block">
-                CAD Mechanics
-              </span>
-              <p className="text-zinc-300 leading-relaxed">
-                {STONE_SETTINGS[selectedSetting].description}
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-mono block">
-                Rhino 8 Tolerance
-              </span>
-              <p className="text-white font-mono bg-[#050505] p-3 border border-zinc-800 font-semibold">
-                {STONE_SETTINGS[selectedSetting].cadTolerance}
-              </p>
-            </div>
-
-            <div className="space-y-1">
-              <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-mono block">
-                Titan Casting Yield
-              </span>
-              <p className="text-zinc-300 leading-relaxed">
-                Calculated for gold/platinum shrinkage (1.5% - 2.0%) to prevent stone fallout during setting.
-              </p>
-            </div>
-          </div>
-
-        </motion.div>
+        </div>
 
       </div>
     </section>

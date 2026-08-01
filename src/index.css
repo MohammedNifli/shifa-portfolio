@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: #000000;
   color: #ffffff;
   scroll-behavior: smooth;
@@ -13,23 +13,6 @@ body {
   background-color: #000000;
   color: #ffffff;
   overflow-x: hidden;
-}
-
-.font-serif-luxury {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-}
-
-/* Watermark Removal Video Clipping Hack */
-.video-container {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 100vh;
-}
-
-.video-container video {
-  transform: scale(1.09); /* Scales video to hide bottom-right/top-right AI corner watermark */
-  transform-origin: center center;
 }
 
 /* Custom Scrollbar - Minimalist Dark */
@@ -50,24 +33,13 @@ body {
   background: #52525b;
 }
 
-/* High-End Dark Obsidian Card Styling */
+/* Crisp Minimalist Card Styling */
 .dark-card {
   background-color: #050505;
   border: 1px solid #18181b;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark-card:hover {
   border-color: #3f3f46;
-  box-shadow: 0 15px 35px -10px rgba(255, 255, 255, 0.05);
-}
-
-/* Subtle Shimmer Overlay */
-@keyframes subtlePulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-.animate-subtle-pulse {
-  animation: subtlePulse 4s infinite ease-in-out;
 }

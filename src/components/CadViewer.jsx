@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { FaSlidersH, FaCube, FaPaintBrush, FaCheckCircle, FaRulerCombined, FaLayerGroup } from 'react-icons/fa';
 import peacockSketch from '/peacock_earrings.png';
 import emeraldNecklace from '/royal_emerald_necklace.png';
 import sapphireRing from '/sapphire_diamond_ring.png';
@@ -11,21 +12,21 @@ const CadViewer = () => {
   const cadItems = [
     {
       title: "Heritage Peacock Earrings",
-      sketchLabel: "Rhino 8 CAD Wireframe",
+      sketchLabel: "Rhino 8 Wireframe / Hand Draft",
       renderLabel: "Photorealistic Gems Render",
       imageBefore: peacockSketch,
       imageAfter: peacockSketch,
       rhinoSpecs: "Rhino 8 - Wall Thickness: 0.85mm | Shrinkage: 1.8% | Gem Count: 42 Stones",
-      features: ["Precision prong angle tapering", "Flexible articulation links", "Hollow-back weight control"]
+      features: ["Precision prong angle", "Flexible articulation", "Hollow-back weight control"]
     },
     {
       title: "Royal Emerald Haute Necklace",
       sketchLabel: "Rhino 8 Assembly Draft",
-      renderLabel: "Keyshot 3D Visualization",
+      renderLabel: "Keyshot Photorealistic Render",
       imageBefore: emeraldNecklace,
       imageAfter: emeraldNecklace,
       rhinoSpecs: "Rhino 8 - Metal: 18K Yellow Gold | Back Gallery Articulation | 12.4ct Emeralds",
-      features: ["Custom gem seats", "Ergonomic neck curvature", "Investment casting ready"]
+      features: ["Custom stone seats", "Ergonomic neck curvature", "Investment casting ready"]
     },
     {
       title: "Oval Sapphire Solitaire Ring",
@@ -34,34 +35,37 @@ const CadViewer = () => {
       imageBefore: sapphireRing,
       imageAfter: sapphireRing,
       rhinoSpecs: "Rhino 8 - Ring Size: 14 | Finger Profile: Comfort Fit | Micro-pave halo: 0.15mm gap",
-      features: ["4-Prong center claw hold", "Double micro-pave halo", "Tapered comfort band"]
+      features: ["4-Prong center hold", "Double micro-pave halo", "Tapered comfort band"]
     }
   ];
 
   const current = cadItems[activeItem];
 
   return (
-    <section id="cad-studio" className="py-28 bg-[#050505] text-white relative border-b border-zinc-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="cad-viewer" className="py-20 bg-[#0c0c11] relative overflow-hidden">
+      
+      {/* Subtle Glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <motion.div 
-          className="text-center max-w-3xl mx-auto mb-14 space-y-3"
+          className="text-center max-w-3xl mx-auto mb-14"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-mono block">
-            02 / INTERACTIVE CAD STUDIO
+          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-2 inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+            Interactive CAD Studio
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl md:text-5xl font-light tracking-wide text-white uppercase">
-            3D Wireframe vs Finished Render
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            From Hand Sketch to <span className="text-gold-gradient italic">3D CAD Precision</span>
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 font-light tracking-wider max-w-xl mx-auto">
-            Drag the interactive slider below to inspect how Rhino 8 CAD wireframes are converted into production-ready luxury jewelry models.
+          <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+            Drag the interactive slider below to inspect how hand concepts & raw Rhino 8 3D CAD models are meticulously transformed into production-ready luxury jewellery.
           </p>
-          <div className="w-12 h-[1px] bg-zinc-800 mx-auto mt-4" />
         </motion.div>
 
         {/* Item Selector Tabs */}
@@ -70,10 +74,10 @@ const CadViewer = () => {
             <button
               key={index}
               onClick={() => setActiveItem(index)}
-              className={`px-5 py-2.5 text-xs font-mono tracking-widest uppercase transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 ${
                 activeItem === index
-                  ? "bg-white text-black font-semibold border border-white"
-                  : "bg-black text-zinc-400 hover:text-white border border-zinc-800"
+                  ? "bg-gradient-to-r from-amber-600 to-yellow-500 text-black font-semibold shadow-lg shadow-amber-500/20"
+                  : "gold-glass-card text-stone-300 hover:text-amber-300 border border-amber-500/20"
               }`}
             >
               {item.title}
@@ -82,12 +86,12 @@ const CadViewer = () => {
         </div>
 
         {/* CAD Comparison Card */}
-        <div className="max-w-5xl mx-auto dark-card p-6 sm:p-10 border border-zinc-800 bg-black">
+        <div className="max-w-5xl mx-auto gold-glass-card rounded-3xl p-6 sm:p-8 border-gold-glow">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Visual Slider Column */}
             <div className="lg:col-span-7">
-              <div className="relative w-full aspect-[4/3] overflow-hidden border border-zinc-800 select-none bg-black">
+              <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-amber-500/30 group select-none">
                 
                 {/* Background Image (Rendered Finished Piece) */}
                 <img 
@@ -96,9 +100,9 @@ const CadViewer = () => {
                   className="absolute inset-0 w-full h-full object-cover filter brightness-105"
                 />
 
-                {/* Foreground Image Clipped (Sketch / Wireframe Mode) */}
+                {/* Foreground Image Clipped (Sketch / Wireframe Mode with filter) */}
                 <div 
-                  className="absolute inset-y-0 left-0 overflow-hidden border-r border-white shadow-2xl"
+                  className="absolute inset-y-0 left-0 overflow-hidden border-r-2 border-amber-400 shadow-2xl"
                   style={{ width: `${sliderPosition}%` }}
                 >
                   <img 
@@ -109,14 +113,14 @@ const CadViewer = () => {
                   />
                   
                   {/* Badge */}
-                  <span className="absolute top-4 left-4 bg-black/90 text-white text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-zinc-700">
-                    {current.sketchLabel}
+                  <span className="absolute top-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-amber-300 border border-amber-500/40">
+                    <FaPaintBrush className="inline mr-1 text-amber-400" /> {current.sketchLabel}
                   </span>
                 </div>
 
                 {/* Render Label Badge */}
-                <span className="absolute top-4 right-4 bg-black/90 text-white text-[10px] font-mono uppercase tracking-widest px-3 py-1 border border-zinc-700">
-                  {current.renderLabel}
+                <span className="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold text-amber-300 border border-amber-500/40">
+                  <FaCube className="inline mr-1 text-amber-400" /> {current.renderLabel}
                 </span>
 
                 {/* Range Input Overlay */}
@@ -131,53 +135,59 @@ const CadViewer = () => {
 
                 {/* Slider Handle */}
                 <div 
-                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-8 h-8 bg-white text-black font-bold flex items-center justify-center shadow-2xl pointer-events-none z-20 text-xs"
+                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-amber-400 text-black flex items-center justify-center shadow-lg shadow-black/80 pointer-events-none z-20"
                   style={{ left: `${sliderPosition}%` }}
                 >
-                  ↔
+                  <FaSlidersH className="text-xs" />
                 </div>
 
               </div>
 
-              <p className="text-center text-[11px] text-zinc-500 font-mono mt-3 uppercase tracking-widest">
-                Drag slider left or right to compare CAD Wireframe vs Render
+              {/* Slider instruction */}
+              <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-2">
+                <FaSlidersH className="text-amber-400" /> Drag slider left or right to compare CAD vs Final Render
               </p>
             </div>
 
             {/* Technical Specs Column */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               <div>
-                <span className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-mono block mb-1">
-                  Rhino 8 Specification
-                </span>
-                <h3 className="font-serif-luxury text-2xl font-light tracking-wide text-white uppercase mb-4">
+                <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider">Technical CAD Breakdown</span>
+                <h3 className="font-serif-luxury text-2xl font-bold text-white mt-1 mb-3">
                   {current.title}
                 </h3>
                 
                 {/* Specs Box */}
-                <div className="p-4 bg-[#050505] border border-zinc-800 mb-6">
-                  <p className="text-xs text-zinc-300 font-mono leading-relaxed">
-                    {current.rhinoSpecs}
+                <div className="p-4 rounded-xl bg-black/40 border border-amber-500/20 mb-4">
+                  <p className="text-xs text-amber-300 font-mono flex items-start gap-2">
+                    <FaRulerCombined className="text-amber-400 text-sm mt-0.5 shrink-0" />
+                    <span>{current.rhinoSpecs}</span>
                   </p>
                 </div>
 
-                <h4 className="text-xs uppercase tracking-wider text-zinc-400 font-mono mb-3">
-                  Key CAD Engineering Features:
+                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-300 mb-3 flex items-center gap-2">
+                  <FaLayerGroup className="text-amber-400" /> Key Rhino 8 Engineering Features:
                 </h4>
 
                 <ul className="space-y-2.5">
                   {current.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2.5 text-xs text-zinc-300 font-light tracking-wide">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white shrink-0" />
+                    <li key={idx} className="flex items-center gap-2.5 text-xs text-stone-300">
+                      <FaCheckCircle className="text-amber-400 shrink-0" />
                       <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-4 border-t border-zinc-800 flex items-center justify-between text-xs font-mono">
-                <span className="text-zinc-500 uppercase tracking-widest">Engine</span>
-                <span className="text-white">Rhino 8 + Keyshot</span>
+              <div className="pt-4 border-t border-amber-500/20 flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="text-[10px] uppercase text-stone-400 font-medium">Software Used</span>
+                  <span className="text-xs font-semibold text-white">Rhino 8 + Keyshot</span>
+                </div>
+                <div className="flex flex-col text-right">
+                  <span className="text-[10px] uppercase text-stone-400 font-medium">Manufacturing</span>
+                  <span className="text-xs font-semibold text-amber-400">100% CAM Feasible</span>
+                </div>
               </div>
 
             </div>
