@@ -1,11 +1,13 @@
 import profileImg from "/shifa_profile.png";
 
 export const PERSONAL_INFO = {
-  name: "FATHIMA SHIFA A P",
-  title: "Specialist 3D Jewelry CAD Designer",
+  name: "FATHIMA SHIFA AP",
+  title: "Jewellery CAD Designer",
   phone: "9846823509",
   phoneFormatted: "+91 9846823509",
   email: "Shifafathima1928@gmail.com",
+  linkedin: "Fathima Shifa AP",
+  instagram: "_shi_fa__ap_",
   location: "Kerala, India",
   profileImage: profileImg,
 };
@@ -13,18 +15,20 @@ export const PERSONAL_INFO = {
 export const HERO_DATA = {
   videoUrl: "https://res.cloudinary.com/r8wxo05i/video/upload/v1785597320/Cinematic_macro_pan_across_a_s_1_dxpyrx.mp4",
   headline: "PRECISION IN 3D CAD JEWELRY DESIGN",
-  subtitle: "Transforming complex concepts into production-ready luxury 3D models.",
+  subtitle: "Creative and detail-oriented Jewellery CAD Designer with 2+ years of professional experience designing high-precision jewellery for Titan through its authorized vendor.",
   ctaText: "View Projects"
 };
 
 export const ABOUT_DATA = {
   heading: "About Me",
-  body: "Specialist 3D Jewelry CAD Designer with expertise in complex parametric surface modeling, gem setting allocations, and high-precision casting-ready geometry. Turning high-fashion luxury concepts into executable digital blueprints.",
+  body: "Creative and detail-oriented Jewellery CAD Designer with 2+ years of professional experience designing high-precision jewellery for Titan through its authorized vendor. Experienced in creating production-ready jewellery using Rhino 8 while ensuring manufacturing feasibility, weight optimization, stone setting accuracy, feeder knowledge, CAD engineering, and structural feasibility. Skilled at transforming concepts and professional hand sketches into elegant jewellery that balances aesthetics with efficient manufacturing.",
   subDetails: [
-    { label: "Experience", value: "2 Years | Zulu Design Studio (Vendor for Titan Company Limited)" },
-    { label: "Education", value: "Diploma in Gems & Jewellery Design (IGJ)" },
+    { label: "Experience", value: "2+ Years | Zulu (Authorized Vendor for Titan)" },
+    { label: "Education", value: "Professional Diploma in Jewellery Design (IGJ)" },
     { label: "Degree", value: "Pondicherry University (Distance)" },
-    { label: "Core Software", value: "Rhino 8, Keyshot, AutoCAD" }
+    { label: "Core Software", value: "Rhino 8 (Advanced 3D Modelling)" },
+    { label: "Manufacturing", value: "Feeder Knowledge & CAD Engineering" },
+    { label: "Languages", value: "English • Malayalam • Arabic • Tamil" }
   ]
 };
 
@@ -89,32 +93,32 @@ export const FEATURED_PROJECTS = [
 
 export const EXPERIENCE_DATA = [
   {
-    role: "3D CAD Jewelry Designer",
-    company: "Zulu Design Studio / Titan Company Limited",
-    period: "2024 - Present (2 Years Total)",
-    description: "Specialized in Rhino 3D, Keyshot, and AutoCAD modeling for diamond and gold jewelry production. Created production-ready 3D CAD geometry for commercial and haute joaillerie lines."
+    role: "Jewellery CAD Designer",
+    company: "Zulu (Authorized Vendor for Titan)",
+    period: "Apr 2024 – Present (2+ Years Experience)",
+    description: "Designed high-precision 3D jewellery CAD models for Titan using Rhino 8. Converted design concepts and hand sketches into production-ready geometry, considering feeder knowledge, CAD engineering, structural feasibility, stone settings, and weight optimization."
   }
 ];
 
 export const EDUCATION_DATA = [
   {
-    degree: "Professional Diploma in Gems and Jewellery Design",
+    degree: "Professional Diploma in Jewellery Design",
     institution: "Institute of Gems and Jewellery (IGJ)",
-    details: "Key Focus: 3D CAD Designing, Gemology, Professional Hand Sketching."
+    details: "Completed after Higher Secondary Education. Specialized in 3D Jewellery CAD Designing, Professional Hand Sketching, Jewellery Design Fundamentals, and Product Development Techniques."
   },
   {
-    degree: "Bachelor's Degree (Distance)",
+    degree: "Bachelor's Degree (Distance Education)",
     institution: "Pondicherry University",
-    details: "Ongoing 1st Year."
+    details: "Currently Pursuing – First Year."
   }
 ];
 
 export const TECHNICAL_MASTERY = [
-  "Rhino 8 & Surface Modeling",
-  "Parametric 3D Surface Modeling",
-  "Keyshot Photorealistic Rendering",
-  "Gem Setting Allocations (Prong, Bezel, Pave, Pressure, Channel, Nick & Cluster)",
-  "Skilled in designing spruing and feeder systems for defect-free metal casting",
+  "Rhino 8 Advanced 3D CAD Modelling",
+  "Feeder Knowledge & CAD Engineering",
+  "Professional Hand Sketching to 3D CAD",
+  "Stone Setting Techniques (Prong, Bezel, Pave, Pressure, Channel, Nick, Cluster)",
+  "Jewellery Manufacturing & Casting Feasibility",
   "Gold & Metal Weight Optimization"
 ];
 
@@ -123,97 +127,106 @@ export const SKILL_CATEGORIES = [
     title: "3D CAD & Surface Modeling",
     skills: [
       { name: "Rhino 8 (Advanced 3D CAD)", level: 95 },
-      { name: "Rhino 8 Parametric Surface CAD", level: 90 },
-      { name: "Keyshot (3D Rendering)", level: 88 },
-      { name: "AutoCAD Technical Drafting", level: 85 }
+      { name: "3D Jewellery CAD Modelling", level: 92 },
+      { name: "Design Visualization", level: 90 },
+      { name: "Hand Sketching to CAD", level: 94 }
     ]
   },
   {
-    title: "Jewelry Engineering & Casting",
+    title: "Jewelry Engineering & Manufacturing",
     skills: [
-      { name: "Gem Setting Allocations (Prong, Pave, Bezel, Channel, Nick, Cluster)", level: 95 },
-      { name: "Spruing & Feeder Systems (Defect-Free Casting)", level: 92 },
-      { name: "Investment Casting Feasibility", level: 90 },
-      { name: "Gold & Metal Weight Optimization", level: 94 }
+      { name: "Stone Setting Techniques", level: 95 },
+      { name: "Feeder Knowledge & CAD Engineering", level: 94 },
+      { name: "Casting & CAM Feasibility", level: 90 },
+      { name: "Weight Optimization & Structural Feasibility", level: 95 }
     ]
   },
   {
     title: "Design & Concept Execution",
     skills: [
-      { name: "Rapid Hand Sketch to 3D CAD", level: 96 },
+      { name: "Professional Hand Sketching", level: 96 },
       { name: "Commercial Titan Line Development", level: 92 },
-      { name: "Haute Joaillerie Prototyping", level: 89 },
-      { name: "Production Specs & Shrinkage Rules", level: 94 }
+      { name: "Product Development", level: 92 },
+      { name: "Aesthetic Problem Solving", level: 94 }
     ]
   }
 ];
 
-export const STONE_SETTINGS_DATA = [
-  {
-    name: "Prong Setting",
-    description: "Classic claw-based hold designed to maximize gemstone light reflection. Requires exact prong length and angle tolerance in Rhino 8 CAD.",
-    cadTolerance: "0.20mm - 0.35mm seat depth",
-    bestFor: "Solitaire Rings & Oval Cut Gemstones"
-  },
-  {
-    name: "Micro-Pave Setting",
-    description: "Multiple small gemstones set closely together using tiny metal beads. High CAD precision needed to prevent stone overlap.",
-    cadTolerance: "0.15mm stone spacing",
-    bestFor: "Halos, Diamond Bands & Luxury Necklaces"
-  },
-  {
-    name: "Bezel Setting",
-    description: "A continuous metal rim surrounding the gem perimeter for ultimate protection and modern aesthetic finish.",
-    cadTolerance: "0.25mm rim overlap",
-    bestFor: "Daily Wear Rings & Geometric Pendants"
-  },
-  {
-    name: "Channel Setting",
-    description: "Gemstones suspended between two smooth parallel walls of metal without individual prongs.",
-    cadTolerance: "0.10mm channel groove fit",
-    bestFor: "Eternity Bands & Modern Bracelets"
-  }
-];
-
 export const CV_DATA = {
-  name: "FATHIMA SHIFA A P",
-  title: "3D JEWELLERY CAD DESIGNER",
+  name: "FATHIMA SHIFA AP",
+  title: "JEWELLERY CAD DESIGNER",
+  tagline: "Rhino 8 — 3D Jewellery Modelling — Hand Sketching",
   contact: {
     phone: "+91 9846823509",
     email: "Shifafathima1928@gmail.com",
+    linkedin: "Fathima Shifa AP",
+    portfolio: "https://shifa-portfolio-theta.vercel.app/",
+    instagram: "_shi_fa__ap_",
     location: "Kerala, India"
   },
-  summary: "Accomplished 3D Jewellery CAD Designer with 2 years of experience creating production-ready jewellery models for Titan Company Limited through vendor Zulu Design Studio. Specialized in Rhino 8 modeling, gemstone setting calculations, weight optimization, and casting feasibility.",
+  summary: "Creative and detail-oriented Jewellery CAD Designer with 2+ years of professional experience designing high-precision jewellery for Titan through its authorized vendor. Experienced in creating production-ready jewellery using Rhino 8 while ensuring manufacturing feasibility, weight optimization, stone setting accuracy, feeder knowledge, CAD engineering, and structural feasibility. Skilled at transforming concepts and professional hand sketches into elegant jewellery that balances aesthetics with efficient manufacturing.",
   experience: [
     {
-      role: "3D Jewellery CAD Designer",
-      company: "Zulu Design Studio (Vendor for Titan Company Limited)",
-      period: "April 2024 - Present (2 Years Total)",
+      role: "Jewellery CAD Designer",
+      company: "Zulu (Authorized Vendor for Titan)",
+      period: "Apr 2024 – Present",
       details: [
-        "Created production-ready 3D CAD models for Titan Company Limited using Rhino 8.",
-        "Successfully completed 3-month OJT starting August and 1-year probation.",
-        "Calculated metal weights, stone settings, and casting shrinkage tolerances."
+        "Design high-precision 3D jewellery CAD models for Titan using Rhino 8.",
+        "Convert design concepts and professional hand sketches into accurate, production-ready CAD models.",
+        "Ensure every design meets manufacturing standards by considering feeder knowledge, CAD engineering, structural feasibility, stone settings, and weight optimization.",
+        "Collaborate closely with design and production teams to refine jewellery models before manufacturing.",
+        "Successfully completed a 3-month intensive On-the-Job Training (OJT) program before transitioning into a full-time Jewellery CAD Designer role.",
+        "Maintain high standards of quality, precision, and craftsmanship across multiple jewellery collections.",
+        "Optimize designs for visual appeal and manufacturing efficiency."
       ]
     }
   ],
+  technicalSkills: {
+    cadSoftware: "Rhino 8 (Advanced 3D Jewellery CAD Modelling)",
+    jewelleryDesign: "3D Jewellery CAD Modelling, Professional Hand Sketching, Concept Development, Design Visualization",
+    manufacturingKnowledge: "Stone Setting Techniques, Jewellery Manufacturing Knowledge, Feeder Knowledge, CAD Engineering, Casting, CAM, Weight Optimization, Structural Feasibility",
+    coreSkills: "Product Development, Creative Thinking, Attention to Detail, Aesthetic Problem Solving, Team Collaboration, Production-Ready CAD Design, Quality Assurance"
+  },
   education: [
-    {
-      degree: "Professional Diploma in Gems and Jewellery Design",
-      institution: "Institute of Gems and Jewellery (IGJ)",
-      details: "Key Focus: 3D CAD Designing & Professional Hand Sketching."
-    },
     {
       degree: "Bachelor's Degree (Distance Education)",
       institution: "Pondicherry University",
-      details: "Currently in 1st Year (Ongoing)."
+      period: "Currently Pursuing – First Year",
+      details: "Distance Education."
+    },
+    {
+      degree: "Professional Diploma in Jewellery Design",
+      institution: "Institute of Gems and Jewellery (IGJ)",
+      period: "Completed after Higher Secondary Education",
+      details: "Specialized in 3D Jewellery CAD Designing, Professional Hand Sketching, Jewellery Design Fundamentals, Product Development Techniques."
     }
   ],
-  skills: [
-    "Rhino 8 3D CAD",
-    "Hand Sketching",
-    "Stone Setting Mechanics (Prong, Pave, Bezel, Pressure, Channel, Nick, Cluster)",
-    "Spruing & Feeder System Design for Metal Casting",
-    "Gold Weight Optimization",
-    "Keyshot Rendering"
+  coreCompetencies: [
+    "Advanced 3D Jewellery CAD Modelling",
+    "Rhino 8 Expertise",
+    "Jewellery Design Visualization",
+    "Professional Hand Sketching",
+    "Stone Setting Techniques",
+    "Manufacturing-Oriented Design",
+    "Jewellery Manufacturing Knowledge",
+    "Feeder Knowledge",
+    "CAD Engineering",
+    "Weight Optimization",
+    "Structural Feasibility",
+    "Product Development",
+    "Design Interpretation",
+    "Creative Problem Solving",
+    "Team Collaboration",
+    "Quality Assurance"
+  ],
+  highlights: [
+    "2+ years of professional experience designing jewellery for Titan through its authorized vendor.",
+    "Advanced proficiency in Rhino 8 for creating precise and production-ready jewellery CAD models.",
+    "Strong understanding of jewellery manufacturing knowledge, feeder knowledge, CAD engineering, stone setting, and structural feasibility.",
+    "Experienced in balancing creative aesthetics with practical manufacturing requirements.",
+    "Successfully transformed design concepts into manufacturable jewellery while maintaining high standards of craftsmanship."
+  ],
+  languages: [
+    "English", "Malayalam", "Arabic", "Tamil"
   ]
 };

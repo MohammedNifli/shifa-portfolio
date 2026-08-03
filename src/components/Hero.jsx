@@ -97,7 +97,7 @@ const Hero = ({ theme, onOpenResume }) => {
             onClick={onOpenResume}
             className="px-8 py-3.5 rounded-full bg-black/60 backdrop-blur-md text-amber-300 font-semibold text-xs uppercase tracking-[0.2em] border border-amber-400/50 hover:bg-amber-500/20 hover:border-amber-300 transition-all duration-300 shadow-xl"
           >
-            Digital CV / Resume
+            Download CV / Resume
           </button>
         </motion.div>
 

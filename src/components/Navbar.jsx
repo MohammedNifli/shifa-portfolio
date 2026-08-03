@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaSun, FaMoon, FaFileAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { FaSun, FaMoon, FaDownload, FaBars, FaTimes } from 'react-icons/fa';
 import { PERSONAL_INFO } from "../constants";
 
 const Navbar = ({ theme, setTheme, onOpenResume }) => {
@@ -104,16 +104,16 @@ const Navbar = ({ theme, setTheme, onOpenResume }) => {
             {isDark ? <FaSun className="text-sm" /> : <FaMoon className="text-sm" />}
           </button>
 
-          {/* Digital Resume Button */}
+          {/* Download Resume Button */}
           <button
             onClick={onOpenResume}
             className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-semibold border flex items-center gap-2 transition-all duration-300 ${
               isDark
-                ? "bg-zinc-900 border-zinc-800 text-zinc-200 hover:bg-white hover:text-black hover:border-white"
-                : "bg-zinc-900 border-zinc-900 text-white hover:bg-zinc-800"
+                ? "bg-zinc-900 border-amber-400/30 text-amber-300 hover:bg-amber-400 hover:text-black hover:border-amber-400"
+                : "bg-zinc-900 border-zinc-900 text-white hover:bg-amber-500 hover:text-black font-bold"
             }`}
           >
-            <FaFileAlt className="text-xs" /> Digital CV
+            <FaDownload className="text-xs" /> Download CV
           </button>
         </div>
 
@@ -178,7 +178,7 @@ const Navbar = ({ theme, setTheme, onOpenResume }) => {
                   : "bg-zinc-900 text-white border-zinc-900"
               }`}
             >
-              <FaFileAlt /> View Digital CV / Resume
+              <FaDownload /> Download Resume / CV (PDF)
             </button>
           </div>
         </motion.div>

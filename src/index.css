@@ -62,3 +62,54 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Print / Download PDF Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+  
+  #printable-cv, #printable-cv * {
+    visibility: visible;
+  }
+  
+  #printable-cv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 24px;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  #printable-cv h1, 
+  #printable-cv h2, 
+  #printable-cv h3, 
+  #printable-cv h4,
+  #printable-cv p,
+  #printable-cv span,
+  #printable-cv li,
+  #printable-cv div {
+    color: #111111 !important;
+    border-color: #e5e7eb !important;
+  }
+  
+  #printable-cv .text-amber-400,
+  #printable-cv .text-amber-300,
+  #printable-cv .text-amber-500 {
+    color: #b45309 !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
