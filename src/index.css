@@ -1,45 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
   font-family: 'Inter', sans-serif;
-  background-color: #000000;
-  color: #ffffff;
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: #000000;
-  color: #ffffff;
-  overflow-x: hidden;
+.font-serif-luxury {
+  font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-/* Custom Scrollbar - Minimalist Dark */
+/* Watermark Removal Video Zoom */
+.video-zoom-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-zoom-container video {
+  transform: scale(1.10); /* Crops out corner watermark cleanly */
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom Scrollbar - Dark */
+.dark ::-webkit-scrollbar,
 ::-webkit-scrollbar {
   width: 6px;
 }
 
+.dark ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track {
   background: #000000;
 }
 
+.dark ::-webkit-scrollbar-thumb,
 ::-webkit-scrollbar-thumb {
   background: #27272a;
   border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #52525b;
+/* Custom Scrollbar - Light */
+.light ::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Crisp Minimalist Card Styling */
-.dark-card {
-  background-color: #050505;
-  border: 1px solid #18181b;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+.light ::-webkit-scrollbar-track {
+  background: #f4f4f5;
 }
 
-.dark-card:hover {
-  border-color: #3f3f46;
+.light ::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 3px;
+}
+
+/* Smooth Theme Transitions */
+* {
+  transition-property: color, background-color, border-color, shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

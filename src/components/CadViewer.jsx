@@ -5,9 +5,10 @@ import peacockSketch from '/peacock_earrings.png';
 import emeraldNecklace from '/royal_emerald_necklace.png';
 import sapphireRing from '/sapphire_diamond_ring.png';
 
-const CadViewer = () => {
+const CadViewer = ({ theme }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
   const [activeItem, setActiveItem] = useState(0);
+  const isDark = theme === 'dark';
 
   const cadItems = [
     {
@@ -42,12 +43,11 @@ const CadViewer = () => {
   const current = cadItems[activeItem];
 
   return (
-    <section id="cad-viewer" className="py-20 bg-[#0c0c11] relative overflow-hidden">
+    <section id="cad-viewer" className={`py-24 sm:py-32 transition-colors duration-300 relative overflow-hidden ${
+      isDark ? "bg-[#08080c] text-white" : "bg-[#F4F4F6] text-zinc-900"
+    }`}>
       
-      {/* Subtle Glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <motion.div 
@@ -57,13 +57,19 @@ const CadViewer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="text-xs font-semibold text-amber-400 uppercase tracking-widest mb-2 inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10">
+          <span className={`text-xs font-mono uppercase tracking-[0.3em] block mb-2 ${
+            isDark ? "text-amber-400" : "text-amber-700 font-semibold"
+          }`}>
             Interactive CAD Studio
           </span>
-          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-            From Hand Sketch to <span className="text-gold-gradient italic">3D CAD Precision</span>
+
+          <h2 className="font-serif-luxury text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide uppercase">
+            From Hand Sketch to <span className={isDark ? "text-amber-300 italic" : "text-amber-700 italic"}>3D CAD Precision</span>
           </h2>
-          <p className="text-stone-300 text-sm sm:text-base leading-relaxed">
+
+          <p className={`text-sm sm:text-base font-light leading-relaxed mt-4 ${
+            isDark ? "text-zinc-300" : "text-zinc-600"
+          }`}>
             Drag the interactive slider below to inspect how hand concepts & raw Rhino 8 3D CAD models are meticulously transformed into production-ready luxury jewellery.
           </p>
         </motion.div>
@@ -74,10 +80,12 @@ const CadViewer = () => {
             <button
               key={index}
               onClick={() => setActiveItem(index)}
-              className={`px-5 py-2.5 rounded-full text-xs font-medium tracking-wide transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 ${
                 activeItem === index
-                  ? "bg-gradient-to-r from-amber-600 to-yellow-500 text-black font-semibold shadow-lg shadow-amber-500/20"
-                  : "gold-glass-card text-stone-300 hover:text-amber-300 border border-amber-500/20"
+                  ? "bg-amber-500 text-black shadow-lg shadow-amber-500/20"
+                  : isDark 
+                    ? "bg-[#111116] text-zinc-300 hover:text-white border border-zinc-800" 
+                    : "bg-white text-zinc-700 hover:text-black border border-zinc-300 shadow-sm"
               }`}
             >
               {item.title}
@@ -86,7 +94,11 @@ const CadViewer = () => {
         </div>
 
         {/* CAD Comparison Card */}
-        <div className="max-w-5xl mx-auto gold-glass-card rounded-3xl p-6 sm:p-8 border-gold-glow">
+        <div className={`max-w-5xl mx-auto rounded-3xl p-6 sm:p-10 border transition-all shadow-2xl ${
+          isDark 
+            ? "bg-[#0a0a0f] border-amber-500/30 text-white" 
+            : "bg-white border-zinc-200 text-zinc-900 shadow-zinc-200"
+        }`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             {/* Visual Slider Column */}
@@ -100,7 +112,7 @@ const CadViewer = () => {
                   className="absolute inset-0 w-full h-full object-cover filter brightness-105"
                 />
 
-                {/* Foreground Image Clipped (Sketch / Wireframe Mode with filter) */}
+                {/* Foreground Image Clipped */}
                 <div 
                   className="absolute inset-y-0 left-0 overflow-hidden border-r-2 border-amber-400 shadow-2xl"
                   style={{ width: `${sliderPosition}%` }}
@@ -144,49 +156,64 @@ const CadViewer = () => {
               </div>
 
               {/* Slider instruction */}
-              <p className="text-center text-xs text-stone-400 mt-3 flex items-center justify-center gap-2">
-                <FaSlidersH className="text-amber-400" /> Drag slider left or right to compare CAD vs Final Render
+              <p className={`text-center text-xs mt-3 flex items-center justify-center gap-2 ${
+                isDark ? "text-zinc-400" : "text-zinc-500"
+              }`}>
+                <FaSlidersH className="text-amber-500" /> Drag slider left or right to compare CAD vs Final Render
               </p>
             </div>
 
             {/* Technical Specs Column */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               <div>
-                <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider">Technical CAD Breakdown</span>
-                <h3 className="font-serif-luxury text-2xl font-bold text-white mt-1 mb-3">
+                <span className={`text-xs font-semibold uppercase tracking-wider font-mono ${
+                  isDark ? "text-amber-400" : "text-amber-700"
+                }`}>
+                  Technical CAD Breakdown
+                </span>
+
+                <h3 className="font-serif-luxury text-2xl font-bold mt-1 mb-3">
                   {current.title}
                 </h3>
                 
                 {/* Specs Box */}
-                <div className="p-4 rounded-xl bg-black/40 border border-amber-500/20 mb-4">
-                  <p className="text-xs text-amber-300 font-mono flex items-start gap-2">
-                    <FaRulerCombined className="text-amber-400 text-sm mt-0.5 shrink-0" />
+                <div className={`p-4 rounded-xl border mb-4 ${
+                  isDark ? "bg-black/50 border-amber-500/20 text-amber-300" : "bg-amber-50/50 border-amber-200 text-amber-900"
+                }`}>
+                  <p className="text-xs font-mono flex items-start gap-2">
+                    <FaRulerCombined className="text-amber-500 text-sm mt-0.5 shrink-0" />
                     <span>{current.rhinoSpecs}</span>
                   </p>
                 </div>
 
-                <h4 className="text-xs font-bold uppercase tracking-wider text-stone-300 mb-3 flex items-center gap-2">
-                  <FaLayerGroup className="text-amber-400" /> Key Rhino 8 Engineering Features:
+                <h4 className={`text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-2 ${
+                  isDark ? "text-zinc-200" : "text-zinc-800"
+                }`}>
+                  <FaLayerGroup className="text-amber-500" /> Key Rhino 8 Engineering Features:
                 </h4>
 
                 <ul className="space-y-2.5">
                   {current.features.map((feat, idx) => (
-                    <li key={idx} className="flex items-center gap-2.5 text-xs text-stone-300">
-                      <FaCheckCircle className="text-amber-400 shrink-0" />
+                    <li key={idx} className={`flex items-center gap-2.5 text-xs ${
+                      isDark ? "text-zinc-300" : "text-zinc-700"
+                    }`}>
+                      <FaCheckCircle className="text-amber-500 shrink-0" />
                       <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-4 border-t border-amber-500/20 flex items-center justify-between">
+              <div className={`pt-4 border-t flex items-center justify-between ${
+                isDark ? "border-zinc-800" : "border-zinc-200"
+              }`}>
                 <div className="flex flex-col">
-                  <span className="text-[10px] uppercase text-stone-400 font-medium">Software Used</span>
-                  <span className="text-xs font-semibold text-white">Rhino 8 + Keyshot</span>
+                  <span className="text-[10px] uppercase font-mono text-zinc-500">Software Used</span>
+                  <span className="text-xs font-semibold">Rhino 8 + Keyshot</span>
                 </div>
                 <div className="flex flex-col text-right">
-                  <span className="text-[10px] uppercase text-stone-400 font-medium">Manufacturing</span>
-                  <span className="text-xs font-semibold text-amber-400">100% CAM Feasible</span>
+                  <span className="text-[10px] uppercase font-mono text-zinc-500">Manufacturing</span>
+                  <span className="text-xs font-semibold text-amber-500">100% CAM Feasible</span>
                 </div>
               </div>
 
