@@ -20,7 +20,7 @@ const Contact = ({ theme }) => {
     setIsSubmitting(true);
     setSubmissionStatus(null);
 
-    const serviceId = 'service_0khh7je';
+    const serviceId = 'service_1xwk9og';
     const templateId = 'template_0i7a0ql';
     const publicKey = 'jb9YP7dhHzMwglyNv';
 
