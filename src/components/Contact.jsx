@@ -24,27 +24,36 @@ const Contact = ({ theme }) => {
     const templateId = import.meta.env.VITE_TEMPLATE_ID || 'template_zizb063';
     const publicKey = import.meta.env.VITE_PUBLIC_KEY || 'jb9YP7dhHzMwglyNv';
 
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      name: formData.name,
-      email: formData.email,
-      reply_to: formData.email,
-      message: formData.message,
-      to_name: PERSONAL_INFO.name,
-      time: new Date().toLocaleString('en-US', {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-      }),
-    };
-
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-      setSubmissionStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      emailjs.init({ publicKey });
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        name: formData.name,
+        email: formData.email,
+        user_name: formData.name,
+        user_email: formData.email,
+        reply_to: formData.email,
+        to_name: PERSONAL_INFO.name,
+        to_email: PERSONAL_INFO.email,
+        message: formData.message,
+        time: new Date().toLocaleString('en-US', {
+          dateStyle: 'medium',
+          timeStyle: 'short',
+        }),
+      };
+
+      const res = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      if (res.status === 200 || res.text === 'OK') {
+        setSubmissionStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setSubmissionStatus('error');
+      }
       setTimeout(() => setSubmissionStatus(null), 6000);
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('EmailJS Error details:', error);
       setSubmissionStatus('error');
       setTimeout(() => setSubmissionStatus(null), 6000);
     } finally {
