@@ -20,9 +20,9 @@ const Contact = ({ theme }) => {
     setIsSubmitting(true);
     setSubmissionStatus(null);
 
-    const serviceId = import.meta.env.VITE_SERVICE_ID || 'service_0khh7je';
-    const templateId = import.meta.env.VITE_TEMPLATE_ID || 'template_0i7a0ql';
-    const publicKey = import.meta.env.VITE_PUBLIC_KEY || 'jb9YP7dhHzMwglyNv';
+    const serviceId = 'service_0khh7je';
+    const templateId = 'template_0i7a0ql';
+    const publicKey = 'jb9YP7dhHzMwglyNv';
 
     try {
       emailjs.init({ publicKey });
