@@ -32,6 +32,10 @@ const Contact = ({ theme }) => {
       reply_to: formData.email,
       message: formData.message,
       to_name: PERSONAL_INFO.name,
+      time: new Date().toLocaleString('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      }),
     };
 
     try {
