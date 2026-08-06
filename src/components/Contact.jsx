@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { PERSONAL_INFO } from '../constants';
-import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaArrowUp, FaCheck, FaPaperPlane } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaWhatsapp, FaArrowUp, FaCheck, FaPaperPlane, FaSpinner, FaExclamationTriangle } from 'react-icons/fa';
 
 const Contact = ({ theme }) => {
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(null); // null | 'success' | 'error'
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,15 +15,37 @@ const Contact = ({ theme }) => {
 
   const isDark = theme === 'dark';
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`3D CAD Inquiry from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nProject Details:\n${formData.message}`
-    );
-    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
-    setFormSubmitted(true);
-    setTimeout(() => setFormSubmitted(false), 5000);
+    setIsSubmitting(true);
+    setSubmissionStatus(null);
+
+    const serviceId = import.meta.env.VITE_SERVICE_ID || 'service_1xwk9og';
+    const templateId = import.meta.env.VITE_TEMPLATE_ID || 'template_zizb063';
+    const publicKey = import.meta.env.VITE_PUBLIC_KEY || 'jb9YP7dhHzMwglyNv';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      name: formData.name,
+      email: formData.email,
+      reply_to: formData.email,
+      message: formData.message,
+      to_name: PERSONAL_INFO.name,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setSubmissionStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      setTimeout(() => setSubmissionStatus(null), 6000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setSubmissionStatus('error');
+      setTimeout(() => setSubmissionStatus(null), 6000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToTop = () => {
@@ -110,9 +134,15 @@ const Contact = ({ theme }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          {formSubmitted && (
+          {submissionStatus === 'success' && (
             <div className="mb-6 p-4 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-widest text-center flex items-center justify-center gap-2">
-              <FaCheck /> Mail client launched. Thank you for getting in touch.
+              <FaCheck /> Message sent successfully! Thank you for getting in touch.
+            </div>
+          )}
+
+          {submissionStatus === 'error' && (
+            <div className="mb-6 p-4 rounded-xl border border-rose-500/40 bg-rose-500/10 text-rose-400 text-xs font-semibold uppercase tracking-widest text-center flex items-center justify-center gap-2">
+              <FaExclamationTriangle /> Failed to send message. Please try again or reach out directly via Email/WhatsApp above.
             </div>
           )}
 
@@ -129,6 +159,7 @@ const Contact = ({ theme }) => {
                 <input 
                   type="text"
                   required
+                  disabled={isSubmitting}
                   placeholder="e.g. Ananya Sharma"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -150,6 +181,7 @@ const Contact = ({ theme }) => {
                 <input 
                   type="email"
                   required
+                  disabled={isSubmitting}
                   placeholder="e.g. client@jewellery.com"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -173,6 +205,7 @@ const Contact = ({ theme }) => {
               <textarea 
                 required
                 rows={5}
+                disabled={isSubmitting}
                 placeholder="Describe your 3D CAD design requirement, metal type, stone specifications, or timeline..."
                 value={formData.message}
                 onChange={(e) => setFormData({...formData, message: e.target.value})}
@@ -188,13 +221,22 @@ const Contact = ({ theme }) => {
             <div className="pt-2">
               <button
                 type="submit"
-                className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-[0.25em] transition-all duration-300 border flex items-center justify-center gap-2 shadow-lg ${
+                disabled={isSubmitting}
+                className={`w-full py-4 rounded-xl font-bold text-xs uppercase tracking-[0.25em] transition-all duration-300 border flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed ${
                   isDark 
                     ? "bg-white text-black border-white hover:bg-amber-300 hover:border-amber-300" 
                     : "bg-zinc-900 text-white border-zinc-900 hover:bg-black"
                 }`}
               >
-                <FaPaperPlane /> Send Message
+                {isSubmitting ? (
+                  <>
+                    <FaSpinner className="animate-spin text-sm" /> Sending Message...
+                  </>
+                ) : (
+                  <>
+                    <FaPaperPlane /> Send Message
+                  </>
+                )}
               </button>
             </div>
 
