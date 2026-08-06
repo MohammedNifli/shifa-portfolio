@@ -20,7 +20,7 @@ const Contact = ({ theme }) => {
     setIsSubmitting(true);
     setSubmissionStatus(null);
 
-    const serviceId = import.meta.env.VITE_SERVICE_ID || 'service_1xwk9og';
+    const serviceId = import.meta.env.VITE_SERVICE_ID || 'service_0khh7je';
     const templateId = import.meta.env.VITE_TEMPLATE_ID || 'template_zizb063';
     const publicKey = import.meta.env.VITE_PUBLIC_KEY || 'jb9YP7dhHzMwglyNv';
 
