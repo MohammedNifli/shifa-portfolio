@@ -35,59 +35,87 @@ export const ABOUT_DATA = {
 export const FEATURED_PROJECTS = [
   {
     id: 1,
-    title: "Haute Diamond & Emerald Neckwear",
-    category: "High Jewelry CAD",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw34fea93c/images/hi-res/50D6SMFAFAA26_1.jpg?sw=640&sh=640",
+    title: "Luminous Burst Diamond Pendant",
+    category: "Diamond Pendant CAD",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5L1PEOAAA26_1.jpg?sw=480&sh=480",
     specs: "Rhino 8 | 18K Yellow Gold | Micro-Pave Seats"
   },
   {
     id: 2,
-    title: "Precision Solitaire Engagement Band - Front",
-    category: "Brilliant Cut Solitaire",
+    title: "Timeless Petal Diamond Drop Earrings",
+    category: "Diamond Drop Earrings",
     image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5D2DAQADA02_1.jpg?sw=480&sh=480",
-    specs: "Platinum 950 | 4-Prong Setting | Comfort Fit"
+    specs: "Rhino 8 | 18K Gold | 4-Prong Setting"
   },
   {
     id: 3,
-    title: "Solitaire Engagement Band - Side Profile",
-    category: "Parametric Surface CAD",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5D2DAQADA02_2.jpg?sw=480&sh=480",
-    specs: "Gallery Scrollwork | 0.20mm Prong Tolerance"
+    title: "Angular Spark Diamond Hoop Earrings",
+    category: "Diamond Hoop Earrings",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5H3HSRAAA26_1.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Channel & Pave Setting"
   },
   {
     id: 4,
-    title: "Royal Emerald & Diamond Drop Choker",
-    category: "Haute Joaillerie",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5H3HSRAAA26_1.jpg?sw=640&sh=640",
-    specs: "22K Gold | Articulated Links | CAM Ready"
+    title: "Glowing Eternity 14 Kt Gold and Diamond Mangalsutra",
+    category: "14K Gold Mangalsutra",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw9315c5f0/images/hi-res/3024YAQ.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 14K Gold | Bezel & Black Beads"
   },
   {
     id: 5,
-    title: "Contemporary Geometric Diamond Ring",
-    category: "Commercial Collection",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dw9315c5f0/images/hi-res/3024YAQ.jpg?sw=640&sh=640",
-    specs: "18K Gold | Channel Setting | Weight Optimized"
+    title: "Eternal Shine 18 Kt Gold and Diamond Mangalsutra",
+    category: "18K Gold Mangalsutra",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6cf5b2a/images/hi-res/3024YAR.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Precision Casting"
   },
   {
     id: 6,
-    title: "Modern Architectural Band",
-    category: "Titan Line CAD",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwa6cf5b2a/images/hi-res/3024YAR.jpg?sw=480&sh=480",
-    specs: "Rhino 8 | Surface Fillets | Precision Casting"
+    title: "Iris Glow Diamond Stud Earrings",
+    category: "Diamond Stud Earrings",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D6SMSCWADA26_1.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Prong Setting"
   },
   {
     id: 7,
-    title: "Heritage Ruby & Gold Bangle",
-    category: "Tradition & Craft",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50O5M21JKABA09_1.jpg?sw=480&sh=480",
-    specs: "22K Yellow Gold | Bezel Setting | Hinge Lock"
+    title: "Arch Sparkle Diamond Necklace",
+    category: "Diamond Necklace CAD",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/Mia/hi-res/3025NLL_1.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Micro-Pave Halo"
   },
   {
     id: 8,
-    title: "Delicate Diamond Pendant & Chain",
-    category: "Minimalist Fine Jewelry",
-    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/dwd3c/images/Mia/hi-res/3025NLL_1.jpg?sw=480&sh=480",
-    specs: "18K Rose Gold | Micro-Pave Halo | Light Weight"
+    title: "Opal Sunburst Diamond Necklace",
+    category: "Opal & Diamond Necklace",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/Mia/hi-res/3026NFU_1.jpg?sw=640&sh=640",
+    specs: "Rhino 8 | Opal & Diamond | Modern Surface CAD"
+  },
+  {
+    id: 9,
+    title: "Aurora Petal Diamond Ring",
+    category: "Diamond Ring CAD",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50DASMFENAA26_1.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Petal Setting"
+  },
+  {
+    id: 10,
+    title: "Spiral Bloom Diamond Ring",
+    category: "Diamond Ring CAD",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/50D5DTFAXAA02_1.jpg?sw=480&sh=480",
+    specs: "Rhino 8 | 18K Gold | Spiral Flow CAD"
+  },
+  {
+    id: 11,
+    title: "Elegant Gold and Diamond Nose Pin",
+    category: "Diamond Nose Pin",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/hi-res/501145OAGAAB02_1.jpg?sw=640&sh=640",
+    specs: "Rhino 8 | 18K Gold | Micro Prong Setting"
+  },
+  {
+    id: 12,
+    title: "Celestial Opal & Diamond Drop Earrings",
+    category: "Opal & Diamond Drop Earrings",
+    image: "https://www.tanishq.co.in/dw/image/v2/BKCK_PRD/on/demandware.static/-/Sites-Tanishq-product-catalog/default/images/Mia/hi-res/3026DFU_1.jpg?sw=640&sh=640",
+    specs: "Rhino 8 | Opal & Diamond | Precision Casting"
   }
 ];
 
